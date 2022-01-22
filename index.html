@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>元之旅</title>
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+    <!-- <script src="http://www.lmlblog.com/winter/templets/xq/js/snowy.js"></script> -->
+<script>
+    
+// <style type="text/css">
+// .snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}</style>
+    
+    
+    </script>
+
+
+        <style>
+        
+        
+        body {
+            /* height: 100%; */
+            /* background-image: url(./终稿.jpg) */
+
+            
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .head {
+            background-image: url(./终稿.jpg);
+            background-size:cover;
+            background-color: grey;
+            height: 45px;
+            opacity: 0.6;
+            width: 100%;
+            margin-left: auto;
+            /* //10px */
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: -1;
+            flex-direction: row;
+        }
+        .all {
+            background-image: url(./终稿.jpg);
+            background-size:cover;
+            margin-left: auto;
+            margin-right: auto;
+            /* 30px */
+            /* background-image: url(./blogface的副本.jpg); */
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: -1;
+            height: 100%;
+            flex-direction: column;
+        }
+        a.one{
+            font-size: 20px;
+            line-height: 45px;
+            display: inline-block;
+            color: rgb(243, 228, 97);
+            text-decoration: none;
+            /* margin-right: 200px; */
+
+            /* display: flex;
+            flex-grow: 2;
+            flex-shrink: -1; */
+            
+        }
+        a {
+            margin-right: 80px;
+            margin-left: 40px;
+            font-size: auto;
+            line-height: 45px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            width: auto;
+            /* margin-right: 15px; */
+            /* margin-left: 15px; */
+            text-align: center;
+            /* width: 40px; */
+
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: -1;
+        }
+        a:hover {
+            background-color: orange;
+        }
+         input{
+
+            font-size:12px;
+            /* 设置输入框中字体的大小 */
+
+            height:30px; 
+            /* 设置输入框的高度 */
+
+            border-radius:4px; 
+            /* 设置输入框的圆角的大小 */
+
+            border:1px solid #c8cccf;
+            /* 设置输入框边框的粗细和颜色 */
+
+            color:#986655; 
+            /* 设置输入框中文字的颜色 */
+
+            outline:0; 
+            /* 将输入框点击的时候出现的边框去掉 */
+
+            text-align:left; 
+            /* 设置输入框中文字的位置 */
+
+            padding-left: 10px;
+
+            display:block; 
+            /* 将输入框设置为块级元素 */
+
+            cursor: pointer;
+
+            box-shadow: 2px 2px 5px 1px #ccc;
+
+            /* text-align: center; */
+
+            /* margin-right: 50%; */
+
+            }
+
+            input::-webkit-input-placeholder{
+            color: #986655;
+            font-size: 12px;
+            }
+        .first {
+            margin-left: 200px;
+            margin-right: 10px;
+            background-color: skyblue;
+            font-size:12px;
+            height:100%; 
+            border-radius:4px; 
+            border:1px solid #c8cccf;
+            color:black; 
+            outline:0; 
+            text-align:left; 
+            display:block; 
+            cursor: pointer;
+        }
+        .sec {
+            margin-left: 10px;
+            margin-right: 10px;
+            background-color: skyblue;
+            font-size:12px;
+            height:100%; 
+            border-radius:4px; 
+            border:1px solid #c8cccf;
+            color:black; 
+            outline:0; 
+            text-align:left; 
+            display:block; 
+            cursor: pointer;
+        }
+        .thr {
+            margin-left: 10px;
+            margin-right: 10px;
+            background-color: skyblue;
+            /* background: no-repeat; */
+            font-size:12px;
+            height:100%; 
+            border-radius:4px; 
+            border:1px solid #c8cccf;
+            color:black; 
+            outline:0; 
+            text-align:left; 
+            display:block; 
+            cursor: pointer;
+        }
+        .bod {
+            background-image: url(./终稿.jpg);
+            background-size:100% 100%;
+            padding-top: 40px;
+            background-color: #fff;
+            height: 1000px;
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: -1;
+            flex-direction: column;
+            /* height: 100%; */
+            /* background: no-repeat; */
+        }
+        .welcome {
+            font-size: auto;
+            height: auto;
+            text-align: center;
+            border: 2px dotted black;
+            /* width: auto; */
+            margin-left: 230px;
+            margin-right: 230px;
+            padding: 10px;
+        }
+        .content {
+            margin-top: 40px;
+            /* 40 */
+            height: 30px;
+            text-align: center;
+        }
+        .dialog {
+            display: none;
+            /* display: block; */
+            margin: 10px 200px;
+            font-size: medium;
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="all">
+        <div class="head">
+            <span><a href="#" class="one">元之旅</a></span>
+            <span><a href="index.html">首页</a></span>
+            <span><a href="#">VR</a></span>
+            <span><a href="#">购买</a></span>
+            <span><a href="#">关于项目</a></span>
+        <input type="text" placeholder="请输入内容">
+            <button class="first" onclick="callLoginDialog()">登陆</button>
+        
+            <button class="sec" onclick="callregisterDialog()" >注册</button>
+
+            <button class="thr" onclick="history.go(0)">刷新</button>
+        </div>
+        <div class="bod">
+
+        </div>
+    </div>
+</body>
+</html>
