@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于项目</title>
+    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
+    <!-- <script src="http://www.lmlblog.com/winter/templets/xq/js/snowy.js"></script> -->
+<script>
+ 
+    </script>
+
+
+        <style>
+        
+        
+        body {
+            height: 100%;
+            background-image: url(./);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .head {
+            background-color: grey;
+            height: 45px;
+            opacity: 0.6;
+            width: 100%;
+            margin-left: auto;
+            /* //10px */
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: -1;
+            flex-direction: row;
+        }
+        .all {
+            margin-left: auto;
+            margin-right: auto;
+            /* 30px */
+            background-image: url(./);
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: -1;
+            height: 100%;
+            flex-direction: column;
+        }
+        a.one{
+            font-size: 20px;
+            line-height: 45px;
+            display: inline-block;
+            color: rgb(243, 228, 97);
+            text-decoration: none;
+            /* margin-right: 200px; */
+
+            /* display: flex;
+            flex-grow: 2;
+            flex-shrink: -1; */
+            
+        }
+        a {
+            font-size: auto;
+            line-height: 45px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            width: auto;
+            /* margin-right: 15px; */
+            /* margin-left: 15px; */
+            text-align: center;
+            /* width: 40px; */
+
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: -1;
+        }
+        a:hover {
+            background-color: orange;
+        }
+         input{
+
+            font-size:12px;
+            /* 设置输入框中字体的大小 */
+
+            height:30px; 
+            /* 设置输入框的高度 */
+
+            border-radius:4px; 
+            /* 设置输入框的圆角的大小 */
+
+            border:1px solid #c8cccf;
+            /* 设置输入框边框的粗细和颜色 */
+
+            color:#986655; 
+            /* 设置输入框中文字的颜色 */
+
+            outline:0; 
+            /* 将输入框点击的时候出现的边框去掉 */
+
+            text-align:left; 
+            /* 设置输入框中文字的位置 */
+
+            padding-left: 10px;
+
+            display:block; 
+            /* 将输入框设置为块级元素 */
+
+            cursor: pointer;
+
+            box-shadow: 2px 2px 5px 1px #ccc;
+
+            /* text-align: center; */
+
+            /* margin-right: 50%; */
+
+            }
+
+            input::-webkit-input-placeholder{
+            color: #986655;
+            font-size: 12px;
+            }
+        .first {
+            margin-right: 10px;
+            background-color: skyblue;
+            font-size:12px;
+            height:100%; 
+            border-radius:4px; 
+            border:1px solid #c8cccf;
+            color:black; 
+            outline:0; 
+            text-align:left; 
+            display:block; 
+            cursor: pointer;
+        }
+        .sec {
+            margin-right: 10px;
+            background-color: skyblue;
+            font-size:12px;
+            height:100%; 
+            border-radius:4px; 
+            border:1px solid #c8cccf;
+            color:black; 
+            outline:0; 
+            text-align:left; 
+            display:block; 
+            cursor: pointer;
+        }
+        .thr {
+            margin-right: 10px;
+            background-color: skyblue;
+            font-size:12px;
+            height:100%; 
+            border-radius:4px; 
+            border:1px solid #c8cccf;
+            color:black; 
+            outline:0; 
+            text-align:left; 
+            display:block; 
+            cursor: pointer;
+        }
+        .bod {
+            background-image: url(./);
+            background-size:100% 100%;
+            padding-top: 40px;
+            background-color: #fff;
+            height: 1000px;
+            /* opacity: 0.4; */
+            /* margin-left: 10px; */
+            /* margin-top: 45px; */
+            display: flex;
+            flex-grow: 2;
+            flex-shrink: -1;
+            flex-direction: column;
+        }
+        .welcome {
+            font-size: auto;
+            height: auto;
+            text-align: center;
+            border: 2px dotted black;
+            /* width: auto; */
+            margin-left: 230px;
+            margin-right: 230px;
+            padding: 10px;
+        }
+        .content {
+            margin-top: 40px;
+            /* 40 */
+            height: 30px;
+            text-align: center;
+        }
+        .dialog {
+            display: none;
+            /* display: block; */
+            text-align: center;
+            margin: 10px 200px;
+            font-size: medium;
+
+            color: red;
+        }
+        .title {
+            font-size:xx-large;
+            margin-bottom: 50px;
+            margin-left: 300px;
+            margin-right: 230px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="snow-container"></div>
+    <div class="all">
+        <div class="head">
+        <a href="#" class="one">元之旅</a>
+        <a href="index.html">首页</a>
+        <a href="">VR</a>
+        <a href="#">购物</a>
+        <a href="#">关于项目</a>
+        <input type="text" placeholder="请输入内容">
+
+        </div>
+        <div class="bod">
+            <div class="title">元之旅</div>
+            <div class="welcome">
+                基于元宇宙概念的旅游-沉浸式服务新型平台是一款综合考虑旅游业发展前景、元宇宙发展趋势、区块链技术、VR技术、消费者行为与安全、国家政策支持等因素下的居家沉浸式出游+实景购物的旅游平台，皆在为客户提供沉浸式旅游-居家体验-实景购物-上门配送的全包式服务，满足客户高品质消费需求。
+            </div>
+           
+        </div>
+    </div>
+</body>
+</html>
