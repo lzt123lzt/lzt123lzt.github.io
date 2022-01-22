@@ -8,11 +8,7 @@
     <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
     <!-- <script src="http://www.lmlblog.com/winter/templets/xq/js/snowy.js"></script> -->
 <script>
-    
-// <style type="text/css">
-// .snow-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:100001;}</style>
-    
-    
+ 
     </script>
 
 
@@ -20,18 +16,14 @@
         
         
         body {
-            /* height: 100%; */
-            /* background-image: url(./终稿.jpg) */
-
-            
+            height: 100%;
+            background-image: url(./blogface.jpg);
         }
         * {
             margin: 0;
             padding: 0;
         }
         .head {
-            background-image: url(./终稿.jpg);
-            background-size:cover;
             background-color: grey;
             height: 45px;
             opacity: 0.6;
@@ -44,12 +36,10 @@
             flex-direction: row;
         }
         .all {
-            background-image: url(./终稿.jpg);
-            background-size:cover;
             margin-left: auto;
             margin-right: auto;
             /* 30px */
-            /* background-image: url(./blogface的副本.jpg); */
+            background-image: url(./blogface的副本.jpg);
             display: flex;
             flex-grow: 2;
             flex-shrink: -1;
@@ -70,8 +60,6 @@
             
         }
         a {
-            margin-right: 80px;
-            margin-left: 40px;
             font-size: auto;
             line-height: 45px;
             display: inline-block;
@@ -133,7 +121,6 @@
             font-size: 12px;
             }
         .first {
-            margin-left: 200px;
             margin-right: 10px;
             background-color: skyblue;
             font-size:12px;
@@ -147,7 +134,6 @@
             cursor: pointer;
         }
         .sec {
-            margin-left: 10px;
             margin-right: 10px;
             background-color: skyblue;
             font-size:12px;
@@ -161,10 +147,8 @@
             cursor: pointer;
         }
         .thr {
-            margin-left: 10px;
             margin-right: 10px;
             background-color: skyblue;
-            /* background: no-repeat; */
             font-size:12px;
             height:100%; 
             border-radius:4px; 
@@ -181,12 +165,13 @@
             padding-top: 40px;
             background-color: #fff;
             height: 1000px;
+            /* opacity: 0.4; */
+            /* margin-left: 10px; */
+            /* margin-top: 45px; */
             display: flex;
             flex-grow: 2;
             flex-shrink: -1;
             flex-direction: column;
-            /* height: 100%; */
-            /* background: no-repeat; */
         }
         .welcome {
             font-size: auto;
@@ -216,22 +201,38 @@
 
 
 <body>
+    <div class="snow-container"></div>
     <div class="all">
         <div class="head">
-            <span><a href="#" class="one">元之旅</a></span>
-            <span><a href="index.html">首页</a></span>
-            <span><a href="#">VR</a></span>
-            <span><a href="#">购买</a></span>
-            <span><a href="#">关于项目</a></span>
+        <a href="#" class="one">元之旅</a>
+        <a href="index.html">首页</a>
+        <a href="">VR</a>
+        <a href="#">购物</a>
+        <a href="关于项目.html">关于项目</a>
         <input type="text" placeholder="请输入内容">
             <button class="first" onclick="callLoginDialog()">登陆</button>
-        
+            
+            <script>
+                function callLoginDialog() {
+       const loginDom = document.getElementById('login-dialog');
+       loginDom.style.display = 'block';
+   }
+           </script>
+
             <button class="sec" onclick="callregisterDialog()" >注册</button>
+
+            <script>
+                function callregisterDialog() {
+       const loginDom = document.getElementById('register-dialog');
+       loginDom.style.display = 'block';
+   }
+           </script>
 
             <button class="thr" onclick="history.go(0)">刷新</button>
         </div>
         <div class="bod">
-
+            
+           
         </div>
     </div>
 </body>
