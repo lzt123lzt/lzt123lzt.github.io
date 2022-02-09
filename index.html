@@ -1,239 +1,497 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>元之旅</title>
-    <script src="https://eqcn.ajz.miesnfu.com/wp-content/plugins/wp-3d-pony/live2dw/lib/L2Dwidget.min.js"></script>
-    <!-- <script src="http://www.lmlblog.com/winter/templets/xq/js/snowy.js"></script> -->
-<script>
- 
-    </script>
+	<meta charset="utf-8"/>
+	<title>元之旅</title>
+	<link rel="stylesheet" href="styles.css" type="text/css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="print.css" media="print" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
+<script type="text/javascript">
+function smartColumns() { //Create a function that calculates the smart columns
 
+//Reset column size to a 100% once view port has been adjusted
+$("ul.column").css({ 'width' : "100%"});
 
-        <style>
-        
-        
-        body {
-            height: 100%;
-            background-image: url(./blogface.jpg);
-        }
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        .head {
-            background-color: grey;
-            height: 45px;
-            opacity: 0.6;
-            width: 100%;
-            margin-left: auto;
-            /* //10px */
-            display: flex;
-            flex-grow: 2;
-            flex-shrink: -1;
-            flex-direction: row;
-        }
-        .all {
-            margin-left: auto;
-            margin-right: auto;
-            /* 30px */
-            background-image: url(./blogface的副本.jpg);
-            display: flex;
-            flex-grow: 2;
-            flex-shrink: -1;
-            height: 100%;
-            flex-direction: column;
-        }
-        a.one{
-            font-size: 20px;
-            line-height: 45px;
-            display: inline-block;
-            color: rgb(243, 228, 97);
-            text-decoration: none;
-            /* margin-right: 200px; */
+var colWrap = $("ul.column").width(); //Get the width of row
+var colNum = Math.floor(colWrap / 200); //Find how many columns of 200px can fit per row / then round it down to a whole number
+var colFixed = Math.floor(colWrap / colNum); //Get the width of the row and divide it by the number of columns it can fit / then round it down to a whole number. This value will be the exact width of the re-adjusted column
 
-            /* display: flex;
-            flex-grow: 2;
-            flex-shrink: -1; */
-            
-        }
-        a {
-            font-size: auto;
-            line-height: 45px;
-            display: inline-block;
-            text-decoration: none;
-            color: #fff;
-            width: auto;
-            /* margin-right: 15px; */
-            /* margin-left: 15px; */
-            text-align: center;
-            /* width: 40px; */
+$("ul.column").css({ 'width' : colWrap}); //Set exact width of row in pixels instead of using % - Prevents cross-browser bugs that appear in certain view port resolutions.
+$("ul.column li").css({ 'width' : colFixed}); //Set exact width of the re-adjusted column	
 
-            display: flex;
-            flex-grow: 2;
-            flex-shrink: -1;
-        }
-        a:hover {
-            background-color: orange;
-        }
-         input{
+}	
 
-            font-size:12px;
-            /* 设置输入框中字体的大小 */
+smartColumns();//Execute the function when page loads
 
-            height:30px; 
-            /* 设置输入框的高度 */
-
-            border-radius:4px; 
-            /* 设置输入框的圆角的大小 */
-
-            border:1px solid #c8cccf;
-            /* 设置输入框边框的粗细和颜色 */
-
-            color:#986655; 
-            /* 设置输入框中文字的颜色 */
-
-            outline:0; 
-            /* 将输入框点击的时候出现的边框去掉 */
-
-            text-align:left; 
-            /* 设置输入框中文字的位置 */
-
-            padding-left: 10px;
-
-            display:block; 
-            /* 将输入框设置为块级元素 */
-
-            cursor: pointer;
-
-            box-shadow: 2px 2px 5px 1px #ccc;
-
-            /* text-align: center; */
-
-            /* margin-right: 50%; */
-
-            }
-
-            input::-webkit-input-placeholder{
-            color: #986655;
-            font-size: 12px;
-            }
-        .first {
-            margin-right: 10px;
-            background-color: skyblue;
-            font-size:12px;
-            height:100%; 
-            border-radius:4px; 
-            border:1px solid #c8cccf;
-            color:black; 
-            outline:0; 
-            text-align:left; 
-            display:block; 
-            cursor: pointer;
-        }
-        .sec {
-            margin-right: 10px;
-            background-color: skyblue;
-            font-size:12px;
-            height:100%; 
-            border-radius:4px; 
-            border:1px solid #c8cccf;
-            color:black; 
-            outline:0; 
-            text-align:left; 
-            display:block; 
-            cursor: pointer;
-        }
-        .thr {
-            margin-right: 10px;
-            background-color: skyblue;
-            font-size:12px;
-            height:100%; 
-            border-radius:4px; 
-            border:1px solid #c8cccf;
-            color:black; 
-            outline:0; 
-            text-align:left; 
-            display:block; 
-            cursor: pointer;
-        }
-        .bod {
-            background-image: url(./终稿.jpg);
-            background-size:100% 100%;
-            padding-top: 40px;
-            background-color: #fff;
-            height: 1000px;
-            /* opacity: 0.4; */
-            /* margin-left: 10px; */
-            /* margin-top: 45px; */
-            display: flex;
-            flex-grow: 2;
-            flex-shrink: -1;
-            flex-direction: column;
-        }
-        .welcome {
-            font-size: auto;
-            height: auto;
-            text-align: center;
-            border: 2px dotted black;
-            /* width: auto; */
-            margin-left: 230px;
-            margin-right: 230px;
-            padding: 10px;
-        }
-        .content {
-            margin-top: 40px;
-            /* 40 */
-            height: 30px;
-            text-align: center;
-        }
-        .dialog {
-            display: none;
-            /* display: block; */
-            margin: 10px 200px;
-            font-size: medium;
-            color: red;
-        }
-    </style>
+$(window).resize(function () { //Each time the viewport is adjusted/resized, execute the function
+smartColumns();
+});
+</script> 
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
+<style>
+ /* 。 */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 楷体;
+	}
+
+/* render html5 elements as block */
+header, footer, section, aside, nav, article {
+	display: block;
+	}
+
+/* standard body */
+body {
+	margin: 0 auto;
+	width: 960px;
+	font: 14px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+	background: #271408 url("images/bodybkg.gif") repeat;
+	}
+	
+/* standard alignments */
+.alignleft {
+	float: left;
+	}
+
+img.alignleft {
+	margin: 5px 10px 0 0; 
+	}
+
+.alignright {
+	float: right;
+	}
+
+img.alignright {
+	margin: 5px 0 0 10px; 
+	}
+	
+.center {
+	text-align: center;
+	}
+	
+.fleft {
+	text-align: left;
+	float: left;
+	margin-left: 20px;
+	}
+	
+.fright {
+	float: right;
+	text-align: right;
+	margin-right: 20px;
+	}
+	
+.fcentered {
+	text-align: center;
+	}
+
+/* Hx tags */
+
+h1 {
+	font-size: 48px;
+	padding: 20px 0;
+	text-shadow: 2px 2px 2px #000;
+	color: #d6a965;
+	}
+
+h2 {
+	font-size: 24px;
+	padding: 20px 0;
+	}
+
+h3 {
+	font-size: 18px;
+	padding: 10px 0;
+	}
+
+p {
+	padding-bottom: 20px;
+	}
+
+/* nav */
+
+nav {
+	position: absolute;
+	width: 960px;
+	background: url("images/navbg.png");
+	
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	}
+
+nav ul {
+	margin: 0 auto;
+	width: 960px;
+	list-style: none;
+	}
+
+nav ul li {
+	float: left;
+	}
+		
+nav ul li a {
+	display: block;
+	margin-right: 20px;
+	width: 140px;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 44px;
+	text-align: center;
+	text-decoration: none;
+	color: #f2ede7;
+	}
+			
+nav ul li a:hover {
+	color: #d6a965;
+	}
+			
+nav ul li.selected a {
+	color: #d6a965;
+	}
+			
+nav ul li.subscribe a {
+	margin-left: 20px;
+	padding-left: 33px;
+	text-align: left;
+	background: url("images/rss.png") left center no-repeat;
+	}
 
 
+
+/* intro */
+
+#intro {
+	position: relative;
+	margin-top: 55px;
+	padding: 50px;
+	background: #695e53 url("images/introbkg.png") repeat-x;
+	
+	/* background size */
+	-webkit-background-size: 100%;
+	-o-background-size: 100%;
+	-khtml-background-size: 100%;
+
+	
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	}
+	
+#intro h2, #intro p {
+	position: relative;
+	z-index: 9999;
+	width: 350px;
+	}
+	
+#intro h2 {
+	padding: 0 0 20px 0;
+	font-weight: normal;
+	color: #fff;
+	}
+	
+#intro p {
+	padding: 0;
+	color: #d6a965;
+	}
+	
+#intro img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 653px;
+	height: 100%;
+	
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	}
+
+/* content and sidebar layout */
+
+#content {
+	position: relative;
+	margin-top: 50px;
+	float: left; 
+	width: 920px; 
+	margin:10px 5px 10px 0; 
+	padding:5px 20px 5px 20px;
+	background-color: #f2ede7;
+	
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+/* columns */
+
+#content ul.column {
+	width: 100%;
+	padding: 0;
+	margin: 10px 0;
+	list-style: none;
+}
+
+#content ul.column li {
+	float: left;
+	width: 230px; /*Set default width*/
+	padding: 0;
+	margin: 5px 0;
+	display: inline;
+}
+
+#content .block {
+	height: 355px;
+	font-size: 1em;
+	margin-right: 10px; /*Creates the 10px gap between each column*/
+	padding: 20px;
+	background: #d6a965;
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#content .block a {
+	color: #FFF;
+	}
+	
+#content .block img {
+  /*Flexible image size with border*/
+	width: 89%;  /*Took 1% off of the width to prevent IE6 bug*/
+	padding: 5%;
+	background:#fff;
+	margin: 0 auto;
+	display: block;
+	-ms-interpolation-mode: bicubic; /*prevents image pixelation IE 6/7 */
+	}
+/* end of column configuration */
+	
+/* footer */
+footer {
+	width: 960px;
+	clear: both;
+	color: #f2ede7;
+	overflow: hidden;
+	padding-top: 10px;
+	background-color: #271408;
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	height: 200px;
+	margin-bottom: 10px;
+	}
+	
+footer section {
+width: 300px;
+float: left;
+padding: 0 10px;
+}
+
+footer section h2 {
+margin-top: 0;
+}
+
+footer section p {
+  font-size: 12px;
+	}
+
+footer section a {
+	color: #999;
+	}
+	
+footer section a:hover {
+	color: #FFF;
+	text-decoration: none;
+	}
+	
+/* for inner pages */
+
+/* content and sidebar layout */
+
+#innercontent {
+	float: left; 
+	width: 610px; 
+	margin:10px 5px 10px 0; 
+	padding:5px 20px 5px 20px;
+	background-color: #d6a965;
+	
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+aside {
+	float: right;
+	text-align: left; 
+	width: 300px; 
+	margin:0; 
+	padding:0;
+	}
+
+/* article */
+.articlecontent header p, .blogPost header p a {
+	font-size: 14px;
+	font-style: italic;
+	color: #777;
+	}
+
+.articlecontent p a {
+	color: #695e53;
+	}
+	
+.articlecontent p a:hover {
+	color: #fff;
+	}
+	
+.articlecontent header p a:hover {
+	text-decoration: none;
+	color: #000;
+	}
+	
+/* box shadow on pics */
+.articlecontent img {
+	-webkit-box-shadow: 3px 3px 7px #777;
+	}
+
+/* sidebar */
+aside section {
+	margin: 10px 0 0 10px;
+	padding: 10px 15px;
+	background-color: #d6a965;
+	
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	}
+
+aside section ul {
+	margin: 0 0 0 20px;
+	color: #FFF;
+	}
+	
+aside section ul li a {
+	display: block;
+	text-decoration: none;
+	color: #695e53;
+	}
+		
+aside section ul li a:hover {
+	text-decoration: underline;
+	color: #fff;
+	}
+	
+</style>
 <body>
-    <div class="snow-container"></div>
-    <div class="all">
-        <div class="head">
-        <a href="#" class="one">元之旅</a>
-        <a href="index.html">首页</a>
-        <a href="">VR</a>
-        <a href="#">购物</a>
-        <a href="关于项目.html">关于项目</a>
-        <input type="text" placeholder="请输入内容">
-            <button class="first" onclick="callLoginDialog()">登陆</button>
-            
-            <script>
-                function callLoginDialog() {
-       const loginDom = document.getElementById('login-dialog');
-       loginDom.style.display = 'block';
-   }
-           </script>
 
-            <button class="sec" onclick="callregisterDialog()" >注册</button>
+	<header>
+		<h1>元之旅</h1>
+	</header>
+	<nav>
+		<ul>
+			<li class="selected"><a href="index.html">首页</a></li>
+			<li><a href="#">关于项目</a></li>
+			<li><a href="#">文创购买</a></li>
+			<li><a href="#">VR观景</a></li>
+			<li><a href="#">联系我们</a></li>
+		</ul>
+	</nav>
+	<section id="intro">
+		<header>
+			<h2>首页首页首页首页首页首页</h2>
+		</header>
+		<p>首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页首页</p>
+		<img src="前底图.png" alt="lime" />
+	</section>
+	
+	<section id="content">
+				<ul class="column">
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+									<a href="#"><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">上海</a></h2> 
+										<p>美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景</p> 
+				        </section>
+				    </li>
 
-            <script>
-                function callregisterDialog() {
-       const loginDom = document.getElementById('register-dialog');
-       loginDom.style.display = 'block';
-   }
-           </script>
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+									<a href="#"><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">北京</a></h2> 
+										<p>美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景</p> 
+				        </section>
+				    </li>
 
-            <button class="thr" onclick="history.go(0)">刷新</button>
-        </div>
-        <div class="bod">
-            
-           
-        </div>
-    </div>
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+									<a href="#"><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">广州</a></h2> 
+										<p> 美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景</p> 
+				        </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+									<a href="#"><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">深圳</a></h2> 
+										<p>美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景</p> 
+				        </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+									<a href="#"><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">成都</a></h2> 
+										<p>美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景</p> 
+				        </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+									<a href="#"><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">昆明</a></h2> 
+										<p>美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景美景</p> 
+				        </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+									<a href="#"><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">西藏</a></h2> 
+										<p>美景美景美景美景美景美景美景美景美景美景美景美景美景美景 </p> 
+				        </section>
+				    </li>
+				</ul>
+		</section>
+		
+	<footer>
+    <section>
+    <h3>Left Stuff</h3>
+    <p>Left aligned text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
+    <p>Next line here</p>
+    </section>
+    
+    <section>
+    <h3>Center Stuff</h3>
+    <p>Center Text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
+    <p>Next line here</p>
+    </section>
+    
+    <section>
+    <h3>Right Stuff</h3>
+    <p>&copy; 2010 <a href="#" title="your site name">yoursite.com</a> All rights reserved.</p>
+    <p>Center Text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
+    </section>
+	
+	</footer>
+<!-- Free template created by http://freehtml5templates.com -->
 </body>
 </html>
