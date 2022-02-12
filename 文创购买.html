@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>元之旅</title>
+	<link rel="stylesheet" href="styles.css" type="text/css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="print.css" media="print" />
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
+<script type="text/javascript">
+function smartColumns() { //Create a function that calculates the smart columns
+
+//Reset column size to a 100% once view port has been adjusted
+$("ul.column").css({ 'width' : "100%"});
+
+var colWrap = $("ul.column").width(); //Get the width of row
+var colNum = Math.floor(colWrap / 200); //Find how many columns of 200px can fit per row / then round it down to a whole number
+var colFixed = Math.floor(colWrap / colNum); //Get the width of the row and divide it by the number of columns it can fit / then round it down to a whole number. This value will be the exact width of the re-adjusted column
+
+$("ul.column").css({ 'width' : colWrap}); //Set exact width of row in pixels instead of using % - Prevents cross-browser bugs that appear in certain view port resolutions.
+$("ul.column li").css({ 'width' : colFixed}); //Set exact width of the re-adjusted column	
+
+}	
+
+smartColumns();//Execute the function when page loads
+
+$(window).resize(function () { //Each time the viewport is adjusted/resized, execute the function
+smartColumns();
+});
+
+/*手办商城购物板块*/
+
+var result=""; //存放选购信息
+var price=new Array(257.00,299.00,389.00,69.00,59.00,69.00);
+var product=new Array("幻纱之灵西施Q版手办		只要￥257.00","仲夏夜之梦貂蝉Q版手办 只要￥299.00","地狱火非洲猴Q版手办 只要￥389.00","超级薄荷黑旋风李白薄荷糖 只要￥69.00","99万毫安的鲁班充电宝 只要￥ 59.00","一生所爱露娜Q版手办 只要￥699.00");
+var isSelected=new Array(0,0,0,0,0,0);
+function clearAll(){
+	isSelected=[0,0,0,0,0,0];  //选择状态全部置0
+	//所以复选框状态变为未选中状态
+	lzjForm.sp0.checked=false;
+	lzjForm.sp1.checked=false;
+	lzjForm.sp2.checked=false;
+	lzjForm.sp3.checked=false;
+	lzjForm.sp4.checked=false;
+	lzjForm.sp5.checked=false;
+}
+function checkOut(){
+	var total=0;//存放小计金额
+	var count=0;//存放选购产品件数
+	for(var i=0;i < isSelected.length; i++){
+		count=count+isSelected[i];
+	}
+	for(var i=0;i< price.length; i++){
+		total=total+price[i]*isSelected[i]  //累计金额
+	}
+	alert("您所选的"+count+"件,产品总价="+total+"\n"+"请去支付!");
+}
+function shoppingCart(){
+	//判断有多少个复选框被选中
+	var selectList=""; //保存所选产品清单
+	for(var j=0;j<product.length; j++){
+		if(isSelected[j]){		//分行显示
+			selectList=selectList+(j+1)+"-"+product[j]+",价值="+price[j]+"\n"
+		}
+	}
+	var info=(selectList=="") ? "您的购物车为空,请选购!":selectList;
+	alert(info);	//生成一个结算清单,显示输出
+}
+function checkSelect(number) {
+	var temp; //暂存复选框状态
+	switch(number){
+		case 0:
+			temp=lzjForm.sp0.checked;break;
+		case 1:
+			temp=lzjForm.sp1.checked;break;
+		case 2:
+			temp=lzjForm.sp2.checked;break;
+		case 3:
+			temp=lzjForm.sp3.checked;break;
+		case 4:
+			temp=lzjForm.sp4.checked;break;
+		case 5:
+			temp=lzjForm.sp5.checked;break;
+	}
+	isSelected[number]=(temp) ? 1:0;  //记录选中产品,1-选中,0-未选
+}
+
+/*留言板块*/
+
+function checkData(){    /*checkData()的JS脚本函数，以便我们在将表单数据提交到服务器前，能对表单中填写的部分数据的合法性进行必要的检验*/
+		var n = document.getElementById("n").value;/*var obj = document.getElementById(页面元素id)*/
+		var x = document.getElementById("x").value;
+		var t = document.getElementById("t").value;
+		var txt = document.getElementById("txt").value;
+		if(!n)
+		{
+			alert("请输入用户名！");
+			return false;
+		}
+		else if(!x)
+		{
+			alert("请输入wechat!");
+			return false;
+		}
+		else if(!t)
+		{
+			alert("请输入留言时间");
+			return false;
+		}
+		else if(!txt)
+		{
+			alert("请输入留言内容");
+			return false;
+		}
+		
+		return true;
+}
+function check(){
+		var r = checkData(); 
+		return r;
+}
+
+
+
+</script> 
+	<!--[if IE]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+</head>
+<style>
+ /* 。 */
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 楷体;
+	}
+
+/* render html5 elements as block */
+header, footer, section, aside, nav, article {
+	display: block;
+	}
+
+/* standard body */
+body {
+	margin: 0 auto;
+	width: 960px;
+	font: 14px/20px "Trebuchet MS", Verdana, Helvetica, Arial, sans-serif;
+	background: #271408 url("bodybkg.gif") repeat;
+	}
+	
+/* standard alignments */
+.alignleft {
+	float: left;
+	}
+
+img.alignleft {
+	margin: 5px 10px 0 0; 
+	}
+
+    img{
+	width:100px;
+	height:140px;
+	transition:all 2s ease;
+}
+img:hover{					
+	cursor:pointer;/*变手势光标*/
+}
+
+img:hover{		/*变大*/
+	width:100px;
+	height:150px;
+}
+
+.alignright {
+	float: right;
+	}
+
+img.alignright {
+	margin: 5px 0 0 10px; 
+	}
+	
+.center {
+	text-align: center;
+	}
+	
+.fleft {
+	text-align: left;
+	float: left;
+	margin-left: 20px;
+	}
+	
+.fright {
+	float: right;
+	text-align: right;
+	margin-right: 20px;
+	}
+	
+.fcentered {
+	text-align: center;
+	}
+
+/* Hx tags */
+
+h1 {
+	font-size: 48px;
+	padding: 20px 0;
+	text-shadow: 2px 2px 2px #000;
+	color: #d6a965;
+	}
+
+h2 {
+	font-size: 24px;
+	padding: 20px 0;
+	}
+
+h3 {
+	font-size: 18px;
+	padding: 10px 0;
+	}
+
+p {
+	padding-bottom: 20px;
+	}
+
+/* nav */
+
+nav {
+	position: absolute;
+	width: 960px;
+	background: url("navbg.png");
+	
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	}
+
+nav ul {
+	margin: 0 auto;
+	width: 960px;
+	list-style: none;
+	}
+
+nav ul li {
+	float: left;
+	}
+		
+nav ul li a {
+	display: block;
+	margin-right: 20px;
+	width: 140px;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 44px;
+	text-align: center;
+	text-decoration: none;
+	color: #f2ede7;
+	}
+			
+nav ul li a:hover {
+	color: #d6a965;
+	}
+			
+nav ul li.selected a {
+	color: #d6a965;
+	}
+			
+nav ul li.subscribe a {
+	margin-left: 20px;
+	padding-left: 33px;
+	text-align: left;
+	background: url("rss.png") left center no-repeat;
+	}
+
+
+
+/* intro */
+
+#intro {
+	position: relative;
+	margin-top: 55px;
+	padding: 50px;
+	background: #695e53 url("introbkg.png") repeat-x;
+	
+	/* background size */
+	-webkit-background-size: 100%;
+	-o-background-size: 100%;
+	-khtml-background-size: 100%;
+
+	
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	}
+	
+#intro h2, #intro p {
+	position: relative;
+	z-index: 9999;
+	width: 350px;
+	}
+	
+#intro h2 {
+	padding: 0 0 20px 0;
+	font-weight: normal;
+	color: #fff;
+	}
+	
+#intro p {
+	padding: 0;
+	color: #d6a965;
+	}
+	
+#intro img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 653px;
+	height: 100%;
+	
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	}
+
+/* content and sidebar layout */
+
+#content {
+	position: relative;
+	margin-top: 50px;
+	float: left; 
+	width: 920px; 
+	margin:10px 5px 10px 0; 
+	padding:5px 20px 5px 20px;
+	background-color: #f2ede7;
+	
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+/* columns */
+
+#content ul.column {
+	width: 100%;
+	padding: 0;
+	margin: 10px 0;
+	list-style: none;
+}
+
+#content ul.column li {
+	float: left;
+	width: 230px; /*Set default width*/
+	padding: 0;
+	margin: 5px 0;
+	display: inline;
+}
+
+#content .block {
+	height: 355px;
+	font-size: 1em;
+	margin-right: 10px; /*Creates the 10px gap between each column*/
+	padding: 20px;
+	background: #d6a965;
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+#content .block a {
+	color: #FFF;
+	}
+	
+#content .block img {
+  /*Flexible image size with border*/
+	width: 89%;  /*Took 1% off of the width to prevent IE6 bug*/
+	padding: 5%;
+	background:#fff;
+	margin: 0 auto;
+	display: block;
+	-ms-interpolation-mode: bicubic; /*prevents image pixelation IE 6/7 */
+	}
+/* end of column configuration */
+	
+/* footer */
+footer {
+	width: 960px;
+	clear: both;
+	color: #f2ede7;
+	overflow: hidden;
+	padding-top: 10px;
+	background-color: #271408;
+	/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	height: 200px;
+	margin-bottom: 10px;
+	}
+	
+footer section {
+width: 300px;
+float: left;
+padding: 0 10px;
+}
+
+footer section h2 {
+margin-top: 0;
+}
+
+footer section p {
+  font-size: 12px;
+	}
+
+footer section a {
+	color: #999;
+	}
+	
+footer section a:hover {
+	color: #FFF;
+	text-decoration: none;
+	}
+	
+/* for inner pages */
+
+/* content and sidebar layout */
+
+#innercontent {
+	float: left; 
+	width: 610px; 
+	margin:10px 5px 10px 0; 
+	padding:5px 20px 5px 20px;
+	background-color: #d6a965;
+	
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+
+aside {
+	float: right;
+	text-align: left; 
+	width: 300px; 
+	margin:0; 
+	padding:0;
+	}
+
+/* article */
+.articlecontent header p, .blogPost header p a {
+	font-size: 14px;
+	font-style: italic;
+	color: #777;
+	}
+
+.articlecontent p a {
+	color: #695e53;
+	}
+	
+.articlecontent p a:hover {
+	color: #fff;
+	}
+	
+.articlecontent header p a:hover {
+	text-decoration: none;
+	color: #000;
+	}
+	
+/* box shadow on pics */
+.articlecontent img {
+	-webkit-box-shadow: 3px 3px 7px #777;
+	}
+
+/* sidebar */
+aside section {
+	margin: 10px 0 0 10px;
+	padding: 10px 15px;
+	background-color: #d6a965;
+	
+/* curved border radius */
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	}
+
+aside section ul {
+	margin: 0 0 0 20px;
+	color: #FFF;
+	}
+	
+aside section ul li a {
+	display: block;
+	text-decoration: none;
+	color: #695e53;
+	}
+		
+aside section ul li a:hover {
+	text-decoration: underline;
+	color: #fff;
+	}
+	#register-dialog {
+        display: none;
+        width: 230px;
+        height: 200px;
+    }
+</style>
+<body>
+
+	<header>
+		<h1>元之旅</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><a href="index.html">首页</a></li>
+			<li><a href="关于项目.html">关于项目</a></li>
+			<li class="selected"><a href="文创购买.html">文创购买</a></li>
+			<li><a href="#">VR观景</a></li>
+			<li><a href="#">联系我们</a></li>
+		</ul>
+	</nav>
+	<section id="intro">
+		<header>
+			<h2>文创介绍</h2>
+		</header>
+		<p>介绍内容介绍内容介绍内容介绍内容介绍内容</p>
+		<!-- <img src="前底图.png" alt="lime" /> -->
+	</section>
+	
+	<section id="content">
+				<ul class="column">
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+									<a href=""><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">产品</a></h2> 
+										<p>简介</p> 
+                                       
+				        </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+                            <a href=""><img src="ad125.jpg" alt=""  /></a> 
+                            <h2><a href="#">产品</a></h2> 
+                            <p>简介</p> 
+
+				        </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+                            <a href=""><img src="ad125.jpg" alt=""  /></a> 
+                            <h2><a href="#">产品</a></h2> 
+                            <p>简介</p> 
+                            			<!-- 内容：图片，文字，checkbox控件 -->
+                                 </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+                            <a href=""><img src="ad125.jpg" alt=""  /></a> 
+                            <h2><a href="#">产品</a></h2> 
+                            <p>简介</p>
+                            
+                        </section>
+				    </li>
+                    <!-- <img src="项目.png" alt="" id="register-dialog"> -->
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+							<a href=""><img src="ad125.jpg" alt=""  /></a> 
+										<h2><a href="#">产品</a></h2> 
+										<p>简介</p> 
+                                        		<!-- 内容：图片，文字，checkbox控件 -->
+                        </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+                            <a href=""><img src="ad125.jpg" alt=""  /></a> 
+                            <h2><a href="#">产品</a></h2> 
+                            <p>简介</p> 	
+                            
+                        </section>
+				    </li>
+
+				    <!--eqblock-->
+				    <li>
+				        <section class="block">
+                            <a href=""><img src="ad125.jpg" alt=""  /></a> 
+                            <h2><a href="#">产品</a></h2> 
+                            <p>简介</p> 
+                        </section>
+				    </li>
+					<li>
+				        
+                            <img src="二维码.jpg" alt="" id="register-dialog"> 
+						       
+				    </li>
+				</ul>
+                <tr>
+                    <td colspan="3">
+                        <input class="myBtn" type="button" value="收款码" onclick="callregisterDialog()">
+                        <input class="myBtn" type="button" value="收回收款码"  onclick="history.go(0)">
+                    </td>	
+                    <script>
+                        function callregisterDialog() {
+       const loginDom = document.getElementById('register-dialog');
+       loginDom.style.display = 'block';
+   }
+                    </script>		
+                </tr>
+		</section>
+		
+	<footer>
+    <section>
+    <h3>Left Stuff</h3>
+    <p>Left aligned text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
+    <p>Next line here</p>
+    </section>
+    
+    <section>
+    <h3>Center Stuff</h3>
+    <p>Center Text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
+    <p>Next line here</p>
+    </section>
+    
+    <section>
+    <h3>Right Stuff</h3>
+    <p>&copy; 2010 <a href="#" title="your site name">yoursite.com</a> All rights reserved.</p>
+    <p>Center Text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
+    </section>
+	
+	</footer>
+
+</body>
+</html>
