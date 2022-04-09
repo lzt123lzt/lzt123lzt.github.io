@@ -499,6 +499,20 @@ aside section ul li a:hover {
         width: 230px;
         height: 200px;
     }
+	#dddd {
+		text-align: center;
+		color: orange;
+		/* fon */
+	}
+	.wuwuwu {
+		text-align: justify;
+		font-size: 20px;
+		line-height: 30px;
+	}
+	#ddddd {
+		padding: 30px;
+
+	}
 </style>
 <body>
 
@@ -601,37 +615,30 @@ aside section ul li a:hover {
 				</ul>
                 <tr>
                     <td colspan="3">
-                        <input class="myBtn" type="button" value="收款码" onclick="callregisterDialog()">
-                        <input class="myBtn" type="button" value="收回收款码"  onclick="history.go(0)">
+                        <input class="myBtn" type="button" value="收款码" id="erweima">
+                        <input class="myBtn" type="button" value="收回收款码" id="shouhui">
                     </td>	
                     <script>
-                        function callregisterDialog() {
-       const loginDom = document.getElementById('register-dialog');
-       loginDom.style.display = 'block';
-   }
+                        let register_dialog = document.getElementById('register-dialog');
+						let erweima = document.getElementById('erweima');
+						let shouhui = document.getElementById('shouhui');
+						erweima.addEventListener('click',function(){
+							register_dialog.style.display = 'block';
+						});
+						shouhui.addEventListener('click',function(){
+							register_dialog.style.display = 'none';
+						})
                     </script>		
                 </tr>
 		</section>
 		
-	<footer>
-    <section>
-    <h3>Left Stuff</h3>
-    <p>Left aligned text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
-    <p>Next line here</p>
-    </section>
+	<footer id="ddddd">
+    <!-- <section> -->
+    <h3 id="dddd">小白的元宇宙团队倾情呈现</h3>
+    <p class="wuwuwu">	小白的元宇宙成员均是来自武汉理工大学在读的优秀本科生，专业领域涉及到金融科技、经济、电商、计算机等多个领域，分工合作。具有互补的知识领域和良好的理论基础，形成了一支富有创意，擅长管理，熟于投资，善于总结的经营管理团队。</p>
+    <p class="wuwuwu">小白的元宇宙团队注重团队协作、求真、团结的职业精神，在无数次电话会议，私信沟通之中建立起来的合作精神是小白的元宇宙团队最宝贵的精神财富，也是元之旅平台不断成长壮大的不竭动力。</p>
+    <!-- </section> -->
     
-    <section>
-    <h3>Center Stuff</h3>
-    <p>Center Text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
-    <p>Next line here</p>
-    </section>
-    
-    <section>
-    <h3>Right Stuff</h3>
-    <p>&copy; 2010 <a href="#" title="your site name">yoursite.com</a> All rights reserved.</p>
-    <p>Center Text here. Proin metus odio, ultricies eu pharetra dictum, laoreet id odio. Curabitur in odio augue. Morbi congue auctor interdum. Phasellus sit amet metus justo.</p>
-    </section>
-	
 	</footer>
 
 </body>
